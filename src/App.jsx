@@ -1,13 +1,27 @@
 import { useState } from "react";
 import HeaderBar from "./HeaderBar.jsx";
-
+import { useEffect } from "react";
+import { useLoaderData } from "react-router";
+import ProductCard from "./ProductCard.jsx";
+import "./App.css";
 function App() {
     //home page
+    // const [initProducts, setInitProducts] = useState([]);
 
+    const Products = useLoaderData();
+    console.log("Array Home Test");
+    console.log(Products);
     return (
         <>
             <HeaderBar />
-            <p> this is the home page</p>
+            <div className="homeContainer">
+                <h1> Home</h1>
+                <div className="productsContainer">
+                    {Products.map((p) => (
+                        <ProductCard key={p.id} product={p} />
+                    ))}
+                </div>
+            </div>
         </>
     );
 }

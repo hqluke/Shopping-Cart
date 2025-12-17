@@ -6,16 +6,19 @@ function HeaderBar() {
         <>
             <div className="navContainer">
                 <div className="navLeft">
-                    <img src="../public/logo-tux-svgrepo-com.svg" />
+                    <Link to="/">
+                        <img src="/logo-tux-svgrepo-com.svg" />
+                    </Link>
                 </div>
                 <div className="navMiddle">
                     <Link to="/">Home</Link>
-                    <Link to="/cart">Cart</Link>
                     <Link to="/shop">Shop</Link>
-
+                    <Link to="/cart">Cart</Link>
                 </div>
                 <div className="navRight">
-                    <img src="../public/cart-shopping-fast-svgrepo-com.svg" />
+                    <Link to="/cart">
+                        <img src="/cart-shopping-fast-svgrepo-com.svg" />
+                    </Link>
                 </div>
             </div>
         </>

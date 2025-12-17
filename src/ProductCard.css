@@ -1,0 +1,43 @@
+.cardContainer {
+    display: flex;
+    gap: 4rem;
+    width: 800px;
+    border: 1px red groove;
+    margin: 1rem;
+}
+
+.cardLeft {
+    display: flex;
+}
+
+.cardRight {
+    display: flex;
+    flex-direction: column;
+    padding-right: 1.4rem;
+}
+
+.cardTop {
+    display: flex;
+    align-items: center;
+    margin-left: 4rem;
+}
+
+.cardMiddle {
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    width: 6rem;
+    height: auto;
+}
+
+.cardBottom {
+    display: flex;
+    gap: 1rem;
+}
+
+.rating {
+    display: flex;
+    gap: 1rem;
+}

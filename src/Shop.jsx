@@ -7,6 +7,11 @@ function Shop() {
         <>
             <HeaderBar />
             <p> This is the shop page</p>
+            <div className="shopContainer">
+                <div className="card">
+
+                </div>
+            </div>
         </>
     );
 }

@@ -1,15 +1,14 @@
-import { useState } from "react";
 import HeaderBar from "./HeaderBar.jsx";
 
-function App() {
+function Cart() {
     //home page
 
     return (
         <>
             <HeaderBar />
-            <p> this is the home page</p>
+            <p> this is the cart page</p>
         </>
     );
 }
 
-export default App;
+export default Cart;

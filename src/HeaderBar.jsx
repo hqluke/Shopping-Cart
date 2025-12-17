@@ -1,22 +1,23 @@
 import { useState } from "react";
 import "./HeaderBar.css";
+import { Link } from "react-router";
 function HeaderBar() {
     return (
         <>
             <div className="navContainer">
                 <div className="navLeft">
-                    <p>PlaceHolder</p>
+                    <img src="../public/logo-tux-svgrepo-com.svg" />
                 </div>
                 <div className="navMiddle">
-                    <p>Home</p>
-                    <p>Shop</p>
-                    <p>Cart</p>
+                    <Link to="/">Home</Link>
+                    <Link to="/cart">Cart</Link>
+                    <Link to="/shop">Shop</Link>
+
                 </div>
                 <div className="navRight">
-                    <p>Cart Image</p>
+                    <img src="../public/cart-shopping-fast-svgrepo-com.svg" />
                 </div>
             </div>
-
         </>
     );
 }

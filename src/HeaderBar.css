@@ -1,6 +1,7 @@
-html, body {
-  height: 100%;
-  margin: 0;
+html,
+body {
+    height: 100%;
+    margin: 0;
 }
 
 #root {
@@ -18,7 +19,12 @@ html, body {
     width: 100%;
     justify-content: space-around;
     background-color: darkorange;
+    align-items: center;
+}
 
+.navContainer img {
+    width: 2rem;
+    height: auto;
 }
 
 .navLeft {

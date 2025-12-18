@@ -9,13 +9,12 @@ function App() {
     // const [initProducts, setInitProducts] = useState([]);
 
     const Products = useLoaderData();
-    console.log("Array Home Test");
     console.log(Products);
     return (
         <>
             <HeaderBar />
             <div className="homeContainer">
-                <h1> Home</h1>
+                <h1>Home</h1>
                 <div className="productsContainer">
                     {Products.map((p) => (
                         <ProductCard key={p.id} product={p} />

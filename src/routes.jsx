@@ -16,10 +16,12 @@ const routes = [
     },
     {
         path: "cart",
+        loader: rootLoader,
         element: <Cart />,
     },
     {
         path: "shop",
+        loader: rootLoader,
         element: <Shop />,
     },
 ];

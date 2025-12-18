@@ -11,15 +11,16 @@ function ProductCard({ product }) {
                 <div className="cardRight">
                     <div className="cardMiddle">
                         <h2>{product.title}</h2>
-                        <p>{product.description}</p>
+                        <div className="rating">
+                            <p>{product.rating.rate}★</p>
+                            <p>({product.rating.count})</p>
+                        </div>
+                        <h1>${product.price.toFixed(2)}</h1>
+                        {/* <p>{product.description}</p> */}
                     </div>
 
                     <div className="cardBottom">
-                        <p>${product.price}</p>
-                        <div className="rating">
-                            <p>{product.rating.rate}</p>
-                            <p>{product.rating.count}</p>
-                        </div>
+                        <button>Add to cart</button>
                     </div>
                 </div>
             </div>

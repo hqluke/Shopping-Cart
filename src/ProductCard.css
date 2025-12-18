@@ -1,7 +1,7 @@
 .cardContainer {
     display: flex;
     gap: 4rem;
-    width: 800px;
+    width: 600px;
     border: 1px red groove;
     margin: 1rem;
 }
@@ -25,6 +25,7 @@
 .cardMiddle {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 img {
@@ -32,12 +33,38 @@ img {
     height: auto;
 }
 
+.cardMiddle h1 {
+    margin: .4rem 0rem;
+    font-size: 2.4rem;
+}
+
+.cardMiddle h2 {
+    margin: 1rem 0 0 0;
+}
+
+.cardMiddle p {
+    margin: 1rem 0rem;
+}
+
+
 .cardBottom {
     display: flex;
     gap: 1rem;
+    justify-content: space-between;
+}
+
+button {
+    margin: .6rem 0rem 1rem 0;
+    width: 10rem;
+    height: 4rem;
 }
 
 .rating {
     display: flex;
-    gap: 1rem;
+    margin: 0rem 0rem;
+    font-size: 1.2rem;
+}
+
+.rating p{
+    margin: 0rem 0rem;
 }

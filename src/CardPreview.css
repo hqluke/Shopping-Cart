@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.previewCardContainer h2 {
+    font-size: 1rem;
+}
+
+.previewCardContainer h1 {
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+.previewCardContainer p {
+    font-size: 1.2rem;
+}
+
+.previewImage img {
+    height: 100px;
+    width: 100px;
+    padding: 0;
+    margin: 0;
+}
+.previewCardContainer {
+    display: flex;
+    flex-direction: column;
+    border: 1px white groove;
+    margin: 0.4rem;
+    height: 300px;
+    width: 240px;
+    justify-content: center;
+}
+
+.cardDiv {
+    display: flex;
+    flex-direction: column;
+}
+
+.previewImage {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.previewTitle {
+    margin: 2rem 1.2rem 0 1.2rem;
+}
+
+.previewRating {
+    display: flex;
+    margin: 0 1.2rem 0 1.2rem;
+}
+
+.previewRating p:nth-of-type(2){
+    color: yellow;
+}
+
+.previewPrice {
+    margin: 0 1.2rem 0 1.2rem;
+}

@@ -2,22 +2,24 @@ import { useState } from "react";
 import HeaderBar from "./HeaderBar.jsx";
 import { useEffect } from "react";
 import { useLoaderData } from "react-router";
-import ProductCard from "./ProductCard.jsx";
+import CardPreview from "./CardPreview.jsx"
 import "./App.css";
 function App() {
     //home page
     // const [initProducts, setInitProducts] = useState([]);
 
     const Products = useLoaderData();
-    console.log(Products);
+    const SlicedProducts = [...Products]
+        .sort((a, b) => b.rating.rate - a.rating.rate)
+        .slice(0, 4);
     return (
         <>
             <HeaderBar />
             <div className="homeContainer">
                 <h1>Home</h1>
-                <div className="productsContainer">
-                    {Products.map((p) => (
-                        <ProductCard key={p.id} product={p} />
+                <div className="previewProductsContainer">
+                    {SlicedProducts.map((p) => (
+                        <CardPreview key={p.id} product={p} />
                     ))}
                 </div>
             </div>

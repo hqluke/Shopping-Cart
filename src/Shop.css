@@ -8,14 +8,14 @@
     margin-top: 2rem;
 }
 
-.homeContainer {
+.shopContainer {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.previewProductsContainer {
+.productsContainer {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 }

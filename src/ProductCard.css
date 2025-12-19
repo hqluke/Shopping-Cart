@@ -30,7 +30,7 @@
     align-items: flex-start;
 }
 
-img {
+.cardTop img {
     width: 6rem;
     height: auto;
 }

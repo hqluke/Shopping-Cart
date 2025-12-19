@@ -21,6 +21,7 @@
     width: 100px;
     padding: 0;
     margin: 0;
+object-fit: contain;
 }
 .previewCardContainer {
     display: flex;

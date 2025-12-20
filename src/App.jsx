@@ -14,8 +14,10 @@ function App() {
         .slice(0, 4);
     return (
         <>
-            <HeaderBar />
             <div className="homeContainer">
+                <div className="headerDiv">
+                    <HeaderBar />
+                </div>
                 <h1>Home</h1>
                 <div className="previewProductsContainer">
                     {SlicedProducts.map((p) => (

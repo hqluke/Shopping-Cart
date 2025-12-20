@@ -15,6 +15,10 @@
     align-items: center;
 }
 
+.headerDiv{
+    width: 100%;
+}
+
 .productsContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;

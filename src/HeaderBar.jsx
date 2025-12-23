@@ -1,7 +1,9 @@
 import { useState } from "react";
 import "./HeaderBar.css";
 import { Link } from "react-router";
+import { useCart } from "./CartContext";
 function HeaderBar() {
+    const {itemCount} = useCart();
     return (
         <>
             <div className="navContainer">
@@ -18,6 +20,7 @@ function HeaderBar() {
                 <div className="navRight">
                     <Link to="/cart">
                         <img src="/cart-shopping-fast-svgrepo-com.svg" />
+                        {itemCount > 0 && <p>{itemCount}</p>}  
                     </Link>
                 </div>
             </div>

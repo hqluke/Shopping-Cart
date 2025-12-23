@@ -7,11 +7,12 @@ import App from "./App.jsx";
 import HeaderBar from "./HeaderBar.jsx";
 import routes from "./routes";
 import { createBrowserRouter, RouterProvider } from "react-router";
+import { CartProvider } from "./CartContext";
 
 const router = createBrowserRouter(routes);
 
 createRoot(document.getElementById("root")).render(
-    <StrictMode>
+    <CartProvider>
         <RouterProvider router={router} />
-    </StrictMode>,
+    </CartProvider>,
 );

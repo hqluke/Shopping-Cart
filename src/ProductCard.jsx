@@ -1,6 +1,10 @@
 import "./ProductCard.css";
 import { Link } from "react-router";
+import { useCart } from "./CartContext";
+
 function ProductCard({ product }) {
+    const { addToCart } = useCart();
+
     const truncateAtWord = (text, limit = 200) => {
         if (text.length <= limit) return text;
 
@@ -39,7 +43,9 @@ function ProductCard({ product }) {
                     </div>
 
                     <div className="cardBottom">
-                        <button>Add to cart</button>
+                        <button onClick={() => addToCart(product, 1)}>
+                            Add to cart
+                        </button>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 import "./CardPreview.css";
+import { Link } from "react-router";
 function CardPreview({ product }) {
     const truncateAtWord = (text, limit = 200) => {
         if (text.length <= limit) return text;
@@ -23,15 +24,14 @@ function CardPreview({ product }) {
             <div className="previewCardContainer">
                 <div className="cardDiv">
                     <div className="previewImage">
-                        <img src={product.image} />
+                        <Link to={`/shop/${product.category}/${product.id}`}>
+                            <img src={product.images[0]} />
+                        </Link>
                     </div>
                     <div className="previewTitle">
-                        <h2>{truncateAtWord(product.title, 60)}</h2>
-                    </div>
-                    <div className="previewRating">
-                        <p>{product.rating.rate}</p>
-                        <p>★</p>
-                        <p>({product.rating.count})</p>
+                        <Link to={`/shop/${product.category}/${product.id}`}>
+                            <h2>{truncateAtWord(product.title, 60)}</h2>
+                        </Link>
                     </div>
                     <div className="previewPrice">
                         <h1>${product.price.toFixed(2)}</h1>

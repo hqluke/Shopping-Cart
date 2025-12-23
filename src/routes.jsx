@@ -1,13 +1,37 @@
 import App from "./App";
 import Cart from "./Cart.jsx";
 import Shop from "./Shop.jsx";
+import ProductPage from "./ProductPage.jsx"
 
-async function rootLoader(){
-    const response = await fetch('https://fakestoreapi.com/products');
-    const data = await response.json();
-    console.log(data);
-    return data;
+async function rootLoader() {
+    let arr = [];
+
+    let response = await fetch(
+        "https://dummyjson.com/products/category/smartphones",
+        // "https://dummyjson.com/products/categories",
+    );
+    let data = await response.json();
+    arr.push(...data.products);
+
+    response = await fetch("https://dummyjson.com/products/category/tablets");
+    data = await response.json();
+    arr.push(...data.products);
+
+    response = await fetch(
+        "https://dummyjson.com/products/category/mobile-accessories",
+    );
+    data = await response.json();
+    arr.push(...data.products);
+
+    response = await fetch(
+        "https://dummyjson.com/products/category/fragrances",
+    );
+    data = await response.json();
+    arr.push(...data.products);
+
+    return arr;
 }
+
 const routes = [
     {
         path: "/",
@@ -23,6 +47,11 @@ const routes = [
         path: "shop",
         loader: rootLoader,
         element: <Shop />,
+    },
+    {
+        path: "shop/:category/:productId",
+        loader: rootLoader,
+        element: <ProductPage />,
     },
 ];
 

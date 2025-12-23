@@ -1,4 +1,5 @@
 import "./ProductCard.css";
+import { Link } from "react-router";
 function ProductCard({ product }) {
     const truncateAtWord = (text, limit = 200) => {
         if (text.length <= limit) return text;
@@ -23,17 +24,16 @@ function ProductCard({ product }) {
             <div className="cardContainer">
                 <div className="cardLeft">
                     <div className="cardTop">
-                        <img src={product.image} />
+                        <Link to={`/shop/${product.category}/${product.id}`}>
+                            <img src={product.images[0]} />
+                        </Link>
                     </div>
                 </div>
                 <div className="cardRight">
                     <div className="cardMiddle">
-                        <h2>{truncateAtWord(product.title, 67)}</h2>
-                        <div className="rating">
-                            <p>{product.rating.rate}</p>
-                            <p>★</p>
-                            <p>({product.rating.count})</p>
-                        </div>
+                        <Link to={`/shop/${product.category}/${product.id}`}>
+                            <h2>{truncateAtWord(product.title, 67)}</h2>
+                        </Link>
                         <h1>${product.price.toFixed(2)}</h1>
                         <p>{truncateAtWord(product.description, 200)}</p>
                     </div>

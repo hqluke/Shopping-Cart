@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useLoaderData } from "react-router";
 import CardPreview from "./CardPreview.jsx";
 import "./App.css";
+import { Link } from "react-router";
 function App() {
     //home page
     // const [initProducts, setInitProducts] = useState([]);
@@ -26,10 +27,18 @@ function App() {
                         <h1>Quick search</h1>
                         <div className="itemList">
                             <ul>
-                                <li>Mens Clothing</li>
-                                <li>Womens Clothing</li>
-                                <li>Technology</li>
-                                <li>Accessories</li>
+                                <Link to="/shop/smartphones">
+                                    <li>Phones</li>
+                                </Link>
+                                <Link to="/shop/tablets">
+                                    <li>Tablets</li>
+                                </Link>
+                                <Link to="/shop/mobile-accessories">
+                                    <li>Mobile Accessories</li>
+                                </Link>
+                                <Link to="/shop/fragrances">
+                                    <li>Fragrances</li>
+                                </Link>
                             </ul>
                         </div>
                     </div>
@@ -82,9 +91,6 @@ function App() {
                                     practicing full-stack or frontend shopping
                                     applications.
                                 </p>
-
-
-
                             </div>
                         </div>
                         <div className="shopC">

@@ -1,20 +1,23 @@
 import HeaderBar from "./HeaderBar.jsx";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useParams } from "react-router";
 import ProductCard from "./ProductCard.jsx";
-import "./Shop.css";
-function Shop() {
+
+function CategoryPage(test) {
     const Products = useLoaderData();
-    console.log("SHOP PAGE");
-    console.log(Products);
+    const { category } = useParams();
+
     return (
         <>
             <div className="shopContainer">
                 <div className="headerDiv">
                     <HeaderBar />
                 </div>
-                <h1>Shop All</h1>
+                {/* Capitalize first letter */}
+                <h1>
+                    Shop {category.charAt(0).toUpperCase() + category.slice(1)}
+                </h1>
                 <div className="productsContainer">
-                    {Products.map((p) => (
+                    {Products.filter((p) => p.category == category).map((p) => (
                         <ProductCard key={p.id} product={p} />
                     ))}
                 </div>
@@ -23,4 +26,4 @@ function Shop() {
     );
 }
 
-export default Shop;
+export default CategoryPage;

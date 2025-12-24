@@ -2,6 +2,7 @@ import App from "./App";
 import Cart from "./Cart.jsx";
 import Shop from "./Shop.jsx";
 import ProductPage from "./ProductPage.jsx"
+import CategoryPage from "./CategoryPage.jsx"
 
 async function rootLoader() {
     let arr = [];
@@ -52,6 +53,11 @@ const routes = [
         path: "shop/:category/:productId",
         loader: rootLoader,
         element: <ProductPage />,
+    },
+    {
+        path: "shop/:category/",
+        loader: rootLoader,
+        element: <CategoryPage />,
     },
 ];
 

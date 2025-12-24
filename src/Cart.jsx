@@ -26,7 +26,7 @@ function Cart() {
                     <h3>{item.title}</h3>
                     <p>Qty: {item.count}</p>
                     <img
-                        src="/public/left-arrow-svgrepo-com.svg"
+                        src="/left-arrow-svgrepo-com.svg"
                         onClick={() => updateQuantity(item.id, item.count - 1)}
                     />
                     <input
@@ -39,7 +39,7 @@ function Cart() {
                     />
 
                     <img
-                        src="/public/right-arrow-svgrepo-com.svg"
+                        src="/right-arrow-svgrepo-com.svg"
                         onClick={() => updateQuantity(item.id, item.count + 1)}
                     />
 

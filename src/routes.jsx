@@ -1,8 +1,8 @@
-import App from "./App";
-import Cart from "./Cart.jsx";
-import Shop from "./Shop.jsx";
-import ProductPage from "./ProductPage.jsx"
-import CategoryPage from "./CategoryPage.jsx"
+import App from "./components/App";
+import Cart from "./components/Cart.jsx";
+import Shop from "./components/Shop.jsx";
+import ProductPage from "./components/ProductPage.jsx"
+import CategoryPage from "./components/CategoryPage.jsx"
 
 async function rootLoader() {
     let arr = [];

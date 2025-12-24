@@ -3,8 +3,8 @@ import HeaderBar from "./HeaderBar.jsx";
 import { useEffect } from "react";
 import { useLoaderData } from "react-router";
 import CardPreview from "./CardPreview.jsx";
-import "./App.css";
 import { Link } from "react-router";
+import "../style/App.css"
 function App() {
     //home page
     // const [initProducts, setInitProducts] = useState([]);

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./HeaderBar.css";
+import "../style/HeaderBar.css";
 import { Link } from "react-router";
 import { useCart } from "./CartContext";
 function HeaderBar() {

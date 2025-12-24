@@ -1,7 +1,7 @@
 import HeaderBar from "./HeaderBar.jsx";
 import { useLoaderData } from "react-router";
 import ProductCard from "./ProductCard.jsx";
-import "./Shop.css";
+import "../style/Shop.css";
 function Shop() {
     const Products = useLoaderData();
     console.log("SHOP PAGE");

@@ -1,13 +1,8 @@
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { useEffect } from "react";
-import { useState } from "react";
-import "./index.css";
-import App from "./App.jsx";
-import HeaderBar from "./HeaderBar.jsx";
+import "./style/index.css";
 import routes from "./routes";
 import { createBrowserRouter, RouterProvider } from "react-router";
-import { CartProvider } from "./CartContext";
+import { CartProvider } from "./components/CartContext";
 
 const router = createBrowserRouter(routes);
 

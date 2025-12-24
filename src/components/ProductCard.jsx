@@ -1,6 +1,10 @@
-import "./CardPreview.css";
+import "../style/ProductCard.css";
 import { Link } from "react-router";
-function CardPreview({ product }) {
+import { useCart } from "./CartContext";
+
+function ProductCard({ product }) {
+    const { addToCart } = useCart();
+
     const truncateAtWord = (text, limit = 200) => {
         if (text.length <= limit) return text;
 
@@ -21,20 +25,27 @@ function CardPreview({ product }) {
 
     return (
         <>
-            <div className="previewCardContainer">
-                <div className="cardDiv">
-                    <div className="previewImage">
+            <div className="cardContainer">
+                <div className="cardLeft">
+                    <div className="cardTop">
                         <Link to={`/shop/${product.category}/${product.id}`}>
                             <img src={product.images[0]} />
                         </Link>
                     </div>
-                    <div className="previewTitle">
+                </div>
+                <div className="cardRight">
+                    <div className="cardMiddle">
                         <Link to={`/shop/${product.category}/${product.id}`}>
-                            <h2>{truncateAtWord(product.title, 60)}</h2>
+                            <h2>{truncateAtWord(product.title, 67)}</h2>
                         </Link>
-                    </div>
-                    <div className="previewPrice">
                         <h1>${product.price.toFixed(2)}</h1>
+                        <p>{truncateAtWord(product.description, 200)}</p>
+                    </div>
+
+                    <div className="cardBottom">
+                        <button onClick={() => addToCart(product, 1)}>
+                            Add to cart
+                        </button>
                     </div>
                 </div>
             </div>
@@ -42,4 +53,4 @@ function CardPreview({ product }) {
     );
 }
 
-export default CardPreview;
+export default ProductCard;

@@ -2,6 +2,7 @@ import { useLoaderData, useParams } from "react-router";
 import HeaderBar from "./HeaderBar.jsx";
 import { useCart } from "./CartContext";
 import { useState } from "react";
+import "../style/ProductPage.css";
 
 function ProductPage() {
     const products = useLoaderData();
@@ -43,32 +44,38 @@ function ProductPage() {
         <>
             <HeaderBar></HeaderBar>
             <div className="fullCard">
-                <img src={product.images[0]} />
-                <h1>{product.title}</h1>
-                <h2>${product.price.toFixed(2)}</h2>
-                <p>{product.description}</p>
-                <p>Category: {product.category}</p>
-                <img
-                    src="/public/left-arrow-svgrepo-com.svg"
-                    onClick={subCount}
-                />
-                <input
-                    min="1"
-                    type="number"
-                    step="1"
-                    value={count}
-                    onChange={handleInputChange}
-                    onBlur={handleInputBlur}
-                />
+                <div className="ppLeft">
+                    <img src={product.images[0]} />
+                </div>
+                <div className="ppRight">
+                    <h1>{product.title}</h1>
+                    <h2>${product.price.toFixed(2)}</h2>
+                    <p>{product.description}</p>
+                    <p>Category: {product.category}</p>
+                    <div className="arrows">
+                        <img
+                            src="/public/left-arrow-svgrepo-com.svg"
+                            onClick={subCount}
+                        />
+                        <input
+                            min="1"
+                            type="number"
+                            step="1"
+                            value={count}
+                            onChange={handleInputChange}
+                            onBlur={handleInputBlur}
+                        />
 
-                <img
-                    src="/public/right-arrow-svgrepo-com.svg"
-                    onClick={addCount}
-                />
+                        <img
+                            src="/public/right-arrow-svgrepo-com.svg"
+                            onClick={addCount}
+                        />
+                    </div>
 
-                <button onClick={() => addToCart(product, count)}>
-                    Add {count} to cart
-                </button>
+                    <button onClick={() => addToCart(product, count)}>
+                        Add {count} to cart
+                    </button>
+                </div>
             </div>
         </>
     );

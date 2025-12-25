@@ -1,0 +1,31 @@
+.cartCard{
+    display: flex;
+    gap: 10rem;
+    place-items: center;
+    margin-bottom: 1rem;
+    border: 1px red groove;
+    height: 500px;
+}
+.cLeft{
+    display: flex;
+}
+
+.cRight{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+.cLeft img{
+    height: 400px;
+}
+
+.cRight img{
+    height: 40px;
+}
+
+.arrows{
+    display: flex;
+    gap: 1rem;
+}
+

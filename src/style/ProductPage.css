@@ -1,0 +1,27 @@
+.fullCard{
+    display: flex;
+    gap: 10rem;
+    place-items: center;
+}
+.ppLeft{
+    display: flex;
+}
+
+.ppRight{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+.ppLeft img{
+    height: 400px;
+}
+
+.ppRight img{
+    height: 40px;
+}
+
+.arrows{
+    display: flex;
+    gap: 1rem;
+}

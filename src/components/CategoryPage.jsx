@@ -2,7 +2,7 @@ import HeaderBar from "./HeaderBar.jsx";
 import { useLoaderData, useParams } from "react-router";
 import ProductCard from "./ProductCard.jsx";
 
-function CategoryPage(test) {
+function CategoryPage() {
     const Products = useLoaderData();
     const { category } = useParams();
 

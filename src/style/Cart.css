@@ -1,10 +1,18 @@
+/* idk why this isn't centering everything. */
+#root{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    align-items: center;
+}
 .cartCard{
     display: flex;
-    gap: 10rem;
+    gap: 4rem;
     place-items: center;
-    margin-bottom: 1rem;
-    border: 1px red groove;
+    border: 1px white groove;
     height: 500px;
+    padding-right: 4rem;
 }
 .cLeft{
     display: flex;
@@ -13,11 +21,10 @@
 .cRight{
     display: flex;
     flex-direction: column;
-    width: 500px;
 }
 
 .cLeft img{
-    height: 400px;
+    height: 200px;
 }
 
 .cRight img{

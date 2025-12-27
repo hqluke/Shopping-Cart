@@ -20,6 +20,7 @@ function Cart() {
 
     return (
         <>
+            <div id="cart-container">
             <HeaderBar />
             {cart.map((item) => (
                 <div className="cartCard" key={item.id}>
@@ -33,9 +34,9 @@ function Cart() {
                             <h3>{item.title}</h3>
                         </Link>
                         <p>Qty: {item.count}</p>
-                        <div className="arrows">
+                        <div className="cArrows">
                             <img
-                                src="/left-arrow-svgrepo-com.svg"
+                                src="/minus-circle-svgrepo-com.svg"
                                 onClick={() =>
                                     updateQuantity(item.id, item.count - 1)
                                 }
@@ -50,7 +51,7 @@ function Cart() {
                             />
 
                             <img
-                                src="/right-arrow-svgrepo-com.svg"
+                                src="/plus-circle-svgrepo-com.svg"
                                 onClick={() =>
                                     updateQuantity(item.id, item.count + 1)
                                 }
@@ -63,6 +64,7 @@ function Cart() {
                     </div>
                 </div>
             ))}
+            </div>
         </>
     );
 }

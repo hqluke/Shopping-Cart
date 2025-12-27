@@ -7,7 +7,7 @@ export function CartProvider({ children }) {
 
     // Calculate total count from cart items
     const itemCount = cart.reduce((total, item) => total + item.count, 0);
-    const totalPrice = cart.reduce((total, item) => total + item.price, 0);
+    const totalPrice = cart.reduce((total, item) => total + item.price * item.count, 0);
 
     function addToCart(product, count = 1) {
         setCart((prevCart) => {

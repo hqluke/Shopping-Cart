@@ -17,6 +17,62 @@
     align-items: center; /* Center horizontally */
     gap: 1rem;
     width: 100%;
+    padding-bottom: 2rem;
+}
+
+.cardcenter {
+    display: flex;
+    gap: 1rem;
+}
+
+.crhs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px white groove;
+    width: 400px;
+    height: 200px;
+    border-radius: 12px;
+}
+
+.crt,
+.crm,
+.crb {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.crt h1,
+.crm h1 {
+    font-size: 2rem;
+    margin: 0 auto 0 1rem;
+    font-weight: 300;
+}
+
+.crb h1 {
+    font-size: 2rem;
+    margin: 0 auto 0 1rem;
+    font-weight: 800;
+}
+
+.crb h2 {
+    font-weight: 800;
+    margin: 0 1rem 0 auto;
+}
+
+.crt h2,
+.crm h2 {
+    margin: 0 1rem 0 auto;
+    font-weight: 300;
+}
+
+.clhs {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    gap: 1rem;
 }
 
 .cartCard {
@@ -54,7 +110,7 @@
 
 .cArrows {
     display: flex;
-    gap: .6rem;
+    gap: 0.6rem;
 }
 
 .cRight button {

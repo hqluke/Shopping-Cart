@@ -24,9 +24,9 @@
     gap: 4rem;
     align-items: center;
     border: 1px white groove;
-    height: 200px;
+    height: 240px;
     padding-right: 4rem;
-    max-width: 440px;
+    width: 440px;
 }
 .cLeft {
     display: flex;

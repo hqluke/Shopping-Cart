@@ -7,6 +7,7 @@ export function CartProvider({ children }) {
 
     // Calculate total count from cart items
     const itemCount = cart.reduce((total, item) => total + item.count, 0);
+    const totalPrice = cart.reduce((total, item) => total + item.price, 0);
 
     function addToCart(product, count = 1) {
         setCart((prevCart) => {
@@ -33,14 +34,21 @@ export function CartProvider({ children }) {
         }
         setCart((prevCart) =>
             prevCart.map((item) =>
-                item.id === productId ? { ...item, count: newCount } : item
-            )
+                item.id === productId ? { ...item, count: newCount } : item,
+            ),
         );
     }
 
     return (
         <CartContext.Provider
-            value={{ cart, addToCart, removeFromCart, updateQuantity, itemCount }}
+            value={{
+                cart,
+                addToCart,
+                removeFromCart,
+                updateQuantity,
+                itemCount,
+                totalPrice,
+            }}
         >
             {children}
         </CartContext.Provider>

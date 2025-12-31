@@ -34,7 +34,7 @@ export function CartProvider({ children }) {
         }
         setCart((prevCart) =>
             prevCart.map((item) =>
-                item.id === productId ? { ...item, count: newCount } : item,
+                item.id === productId && item.stock >= newCount? { ...item, count: newCount } : {...item, count: item.stock}
             ),
         );
     }

@@ -1,27 +1,91 @@
-.fullCard{
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.ppfull {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    gap: 1rem;
+    width: 100%;
+    padding-bottom: 2rem;
+}
+
+.fullCard {
     display: flex;
     gap: 10rem;
     place-items: center;
 }
-.ppLeft{
+.ppLeft {
     display: flex;
 }
 
-.ppRight{
+.ppRight {
     display: flex;
     flex-direction: column;
     width: 500px;
+    border: 1px white groove;
+    padding: 2rem;
 }
 
-.ppLeft img{
+.ppLeft img {
     height: 400px;
 }
 
-.ppRight img{
+.ppRight img {
     height: 40px;
 }
 
-.arrows{
+.pptbr {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.4rem;
+}
+
+.ppt h1 {
+    margin-bottom: -1rem;
+}
+
+.ppbr {
     display: flex;
     gap: 1rem;
+}
+
+.ppbrr {
+    display: flex;
+}
+
+.ppbrr p:nth-of-type(2) {
+    color: yellow;
+}
+
+.ppsp {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ppbuy {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.ppstock {
+    display: flex;
+}
+
+.arrows {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
 }

@@ -1,23 +1,57 @@
 import HeaderBar from "./HeaderBar.jsx";
 import { useCart } from "./CartContext";
 import "../style/Cart.css";
-import { Link } from "react-router";
+import { Link, useLoaderData } from "react-router";
 import { useEffect, useState } from "react";
+import { useRef } from "react";
+
 function Cart() {
+    const products = useLoaderData();
     const { cart, removeFromCart, updateQuantity, totalPrice, itemCount } =
         useCart();
     const [totalTax, setTotalTax] = useState(0);
     const [finalPrice, setFinalPrice] = useState(0);
 
-    const handleInputChange = (itemId) => (e) => {
-        const value = parseInt(e.target.value, 10);
-        if (!isNaN(value) && value >= 1) {
-            updateQuantity(itemId, value);
+    // 👇 local editable field values
+    const [inputs, setInputs] = useState({});
+
+    // initialize when cart loads / changes
+    useEffect(() => {
+        setInputs(
+            Object.fromEntries(cart.map((item) => [item.id, item.count])),
+        );
+    }, [cart]);
+
+    const inputRef = useRef(null);
+
+    const selectAll = () => {
+        if (inputRef.current) {
+            inputRef.current.select();
         }
     };
 
-    const handleInputBlur = (item) => {
-        if (item.count < 1) {
+    const handleInputChange = (item, stock) => (e) => {
+        const raw = e.target.value;
+
+        // allow blank while typing
+        if (raw === "") {
+            setInputs((prev) => ({ ...prev, [item.id]: "" }));
+            return;
+        }
+
+        const num = parseInt(raw, 10);
+        if (isNaN(num)) return;
+
+        // clamp to stock limits
+        const safe = Math.min(stock, Math.max(1, num));
+
+        setInputs((prev) => ({ ...prev, [item.id]: safe }));
+        updateQuantity(item.id, safe);
+    };
+
+    const handleBlur = (item) => () => {
+        if (inputs[item.id] === "" || inputs[item.id] < 1) {
+            setInputs((prev) => ({ ...prev, [item.id]: 1 }));
             updateQuantity(item.id, 1);
         }
     };
@@ -70,11 +104,14 @@ function Cart() {
                                             min="1"
                                             type="number"
                                             step="1"
-                                            value={item.count}
+                                            value={inputs[item.id] ?? ""}
                                             onChange={handleInputChange(
-                                                item.id,
+                                                item,
+                                                item.stock,
                                             )}
-                                            onBlur={handleInputBlur(item)}
+                                            onBlur={handleBlur(item)}
+                                            ref={inputRef}
+                                            onClick={selectAll}
                                         />
 
                                         <img

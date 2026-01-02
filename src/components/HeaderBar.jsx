@@ -3,7 +3,7 @@ import "../style/HeaderBar.css";
 import { Link } from "react-router";
 import { useCart } from "./CartContext";
 function HeaderBar() {
-    const {itemCount} = useCart();
+    const { itemCount } = useCart();
     return (
         <>
             <div className="navContainer">
@@ -19,8 +19,14 @@ function HeaderBar() {
                 </div>
                 <div className="navRight">
                     <Link to="/cart">
-                        <img src="/cart-shopping-fast-svgrepo-com.svg" />
-                        {itemCount > 0 && <p>{itemCount}</p>}  
+                        <div className="himg">
+                            <img src="/cart-shopping-fast-svgrepo-com.svg" />
+                        </div>
+                    </Link>
+                    <Link to="/cart">{itemCount > 0 &&
+                        <div className="hcount">
+                             <p>{itemCount}</p>
+                        </div>}
                     </Link>
                 </div>
             </div>

@@ -7,7 +7,10 @@ export function CartProvider({ children }) {
 
     // Calculate total count from cart items
     const itemCount = cart.reduce((total, item) => total + item.count, 0);
-    const totalPrice = cart.reduce((total, item) => total + item.price * item.count, 0);
+    const totalPrice = cart.reduce(
+        (total, item) => total + item.price * item.count,
+        0,
+    );
 
     function addToCart(product, count = 1) {
         setCart((prevCart) => {
@@ -33,8 +36,11 @@ export function CartProvider({ children }) {
             return;
         }
         setCart((prevCart) =>
-            prevCart.map((item) =>
-                item.id === productId && item.stock >= newCount? { ...item, count: newCount } : {...item, count: item.stock}
+            prevCart.map(
+                (item) =>
+                    item.id === productId
+                        ? { ...item, count: Math.min(newCount, item.stock) }
+                        : item, // ✅ Leave other items unchanged
             ),
         );
     }

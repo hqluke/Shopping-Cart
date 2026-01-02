@@ -22,14 +22,6 @@ function Cart() {
         );
     }, [cart]);
 
-    const inputRef = useRef(null);
-
-    const selectAll = () => {
-        if (inputRef.current) {
-            inputRef.current.select();
-        }
-    };
-
     const handleInputChange = (item, stock) => (e) => {
         const raw = e.target.value;
 
@@ -61,6 +53,11 @@ function Cart() {
         setTotalTax(tax);
         setFinalPrice(totalPrice + tax);
     }
+
+    const formatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+    });
 
     useEffect(() => {
         calcMoney();
@@ -110,8 +107,6 @@ function Cart() {
                                                 item.stock,
                                             )}
                                             onBlur={handleBlur(item)}
-                                            ref={inputRef}
-                                            onClick={selectAll}
                                         />
 
                                         <img
@@ -138,15 +133,15 @@ function Cart() {
                         <div className="crhs">
                             <div className="crt">
                                 <h1>Items({itemCount}):</h1>
-                                <h2>${totalPrice.toFixed(2)}</h2>
+                                <h2>{formatter.format(totalPrice)}</h2>
                             </div>
                             <div className="crm">
                                 <h1>Tax: </h1>
-                                <h2>${totalTax.toFixed(2)}</h2>
+                                <h2>{formatter.format(totalTax)}</h2>
                             </div>
                             <div className="crb">
                                 <h1>Order Total:</h1>
-                                <h2>${finalPrice.toFixed(2)}</h2>
+                                <h2>{formatter.format(finalPrice)}</h2>
                             </div>
                         </div>
                     )}

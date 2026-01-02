@@ -1,4 +1,4 @@
-import { useLoaderData, useParams } from "react-router";
+import { useLoaderData, useParams, Link } from "react-router";
 import HeaderBar from "./HeaderBar.jsx";
 import { useCart } from "./CartContext";
 import { useState } from "react";
@@ -7,19 +7,22 @@ import "../style/ProductPage.css";
 function ProductPage() {
     const products = useLoaderData();
     const { productId } = useParams();
+    const { addToCart, cart } = useCart();
 
     const product = products.find((p) => p.id === Number(productId));
-
     if (!product) {
         return <h2>Product not found</h2>;
     }
 
+    const [mainImage, setMainImage] = useState(product.images[0]);
     const [count, setCount] = useState(1);
-    const { addToCart } = useCart();
     const totalStock = product.stock;
+    const cartItem = cart.find((item) => item.id === product.id);
+    const currentCartQuantity = cartItem ? cartItem.count : 0;
+    const availableStock = totalStock - currentCartQuantity;
 
     const addCount = () => {
-        setCount((prev) => Math.min(totalStock, prev + 1));
+        setCount((prev) => Math.min(availableStock, prev + 1));
     };
 
     const subCount = () => {
@@ -28,10 +31,10 @@ function ProductPage() {
 
     const handleInputChange = (e) => {
         const value = parseInt(e.target.value, 10);
-        if (!isNaN(value) && value >= 1 && value <= totalStock) {
+        if (!isNaN(value) && value >= 1 && value <= availableStock) {
             setCount(value);
-        } else if (value >= totalStock) {
-            setCount(totalStock);
+        } else if (value >= availableStock) {
+            setCount(availableStock);
         } else if (e.target.value === "") {
             setCount(""); // Allow empty during typing
         }
@@ -43,13 +46,57 @@ function ProductPage() {
         }
     };
 
+    const plural = availableStock === 1 ? "item" : "items";
+
+    function cartCheck() {
+        const cartItem = cart.find((item) => item.id === product.id);
+        const currentCartQuantity = cartItem ? cartItem.count : 0;
+        const availableStock = totalStock - currentCartQuantity;
+        if (availableStock <= 0) {
+            alert(
+                `No more stock available. You already have ${currentCartQuantity} in your cart.`,
+            );
+            return;
+        }
+
+        const quantityToAdd = Math.min(count, availableStock);
+
+        if (quantityToAdd < count) {
+            alert(
+                `Only ${availableStock} ${plural} available. Adding ${quantityToAdd} to cart.`,
+            );
+        }
+
+        addToCart(product, quantityToAdd);
+    }
+
     return (
         <>
             <div className="ppfull">
                 <HeaderBar></HeaderBar>
                 <div className="fullCard">
                     <div className="ppLeft">
-                        <img src={product.images[0]} />
+                        <div className="ppLC">
+                            <div className="ppli">
+                                {product.images.length !== 1 &&
+                                    product.images.map((image, index) => (
+                                        <div
+                                            key={index}
+                                            className="ppi"
+                                            onClick={() => setMainImage(image)}
+                                            style={{ cursor: "pointer" }}
+                                        >
+                                            <img
+                                                src={image}
+                                                draggable="false"
+                                            />
+                                        </div>
+                                    ))}
+                            </div>
+                            <div className="pplmainImage">
+                                <img src={mainImage} draggable="false" />
+                            </div>
+                        </div>
                     </div>
                     <div className="ppRight">
                         <div className="pptbr">
@@ -66,7 +113,9 @@ function ProductPage() {
                         </div>
                         <h2>${product.price.toFixed(2)}</h2>
                         <p>{product.description}</p>
-                        <p>Category: {product.category}</p>
+                        <p>
+                            Shop more: <Link to ={`/shop/${product.category}`}>{product.category}</Link>
+                        </p>
                         <div className="ppsp">
                             <div className="shipping">
                                 <h2>Shipping</h2>
@@ -86,7 +135,9 @@ function ProductPage() {
                         </div>
                         <div className="ppbuy">
                             <div className="ppstock">
-                                <p>{product.stock} items available</p>
+                                <p>
+                                    {availableStock} {plural} available
+                                </p>
                             </div>
                             <div className="arrows">
                                 <img
@@ -107,7 +158,7 @@ function ProductPage() {
                                 />
                             </div>
                         </div>
-                        <button onClick={() => addToCart(product, count)}>
+                        <button onClick={() => cartCheck()}>
                             Add {count} to cart
                         </button>
                     </div>

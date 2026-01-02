@@ -32,8 +32,16 @@
     justify-content: center;
     border: 2px white groove;
     width: 400px;
-    height: 200px;
+    height: 300px;
     border-radius: 12px;
+}
+
+.crbb{
+    margin-top: 1rem;
+}
+
+.crbb button{
+    width: 199px;
 }
 
 .crt,

@@ -12,7 +12,6 @@ function Cart() {
     const [totalTax, setTotalTax] = useState(0);
     const [finalPrice, setFinalPrice] = useState(0);
 
-    // 👇 local editable field values
     const [inputs, setInputs] = useState({});
 
     // initialize when cart loads / changes
@@ -58,6 +57,11 @@ function Cart() {
         style: "currency",
         currency: "USD",
     });
+
+    function checkout() {
+        alert("You checked out.");
+        return;
+    }
 
     useEffect(() => {
         calcMoney();
@@ -142,6 +146,11 @@ function Cart() {
                             <div className="crb">
                                 <h1>Order Total:</h1>
                                 <h2>{formatter.format(finalPrice)}</h2>
+                            </div>
+                            <div className="crbb">
+                                <button onClick={() => checkout()}>
+                                    Checkout
+                                </button>
                             </div>
                         </div>
                     )}

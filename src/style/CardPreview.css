@@ -21,7 +21,7 @@
     width: 100px;
     padding: 0;
     margin: 0;
-object-fit: contain;
+    object-fit: contain;
 }
 .previewCardContainer {
     display: flex;
@@ -54,7 +54,7 @@ object-fit: contain;
     margin: 0 1.2rem 0 1.2rem;
 }
 
-.previewRating p:nth-of-type(2){
+.previewRating p:nth-of-type(2) {
     color: yellow;
 }
 
@@ -62,12 +62,13 @@ object-fit: contain;
     margin: 0 1.2rem 0 1.2rem;
 }
 
-.previewButton{
-display: flex;
-justify-content: center;
+.previewButton {
+    display: flex;
+    justify-content: center;
 }
 
-.previewButton button{
-    font-size: .8rem;
+.previewButton button {
+    font-size: 0.8rem;
     height: 2.8rem;
     margin-bottom: 2rem;
+}

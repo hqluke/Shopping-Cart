@@ -1,6 +1,6 @@
 import HeaderBar from "./HeaderBar.jsx";
 import { useLoaderData, useParams } from "react-router";
-import ProductCard from "./ProductCard.jsx";
+import CardPreview from "./CardPreview.jsx";
 
 function CategoryPage() {
     const Products = useLoaderData();
@@ -16,9 +16,9 @@ function CategoryPage() {
                 <h1>
                     Shop {category.charAt(0).toUpperCase() + category.slice(1)}
                 </h1>
-                <div className="productsContainer">
+                <div className="productsContainerc">
                     {Products.filter((p) => p.category == category).map((p) => (
-                        <ProductCard key={p.id} product={p} />
+                        <CardPreview key={p.id} product={p} />
                     ))}
                 </div>
             </div>

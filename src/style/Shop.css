@@ -15,11 +15,20 @@
     align-items: center;
 }
 
-.headerDiv{
+.headerDiv {
     width: 100%;
 }
 
 .productsContainer {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding-bottom: 2rem;
+    gap: 0.2rem;
+}
+
+.productsContainerc {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding-bottom: 2rem;
+    gap: 1rem;
 }

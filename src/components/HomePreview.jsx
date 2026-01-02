@@ -1,10 +1,6 @@
-import "../style/CardPreview.css";
+import "../style/HomePreview.css";
 import { Link } from "react-router";
-import { useCart } from "./CartContext";
-
-function CardPreview({ product }) {
-    const { addToCart } = useCart();
-
+function HomePreview({ product }) {
     const truncateAtWord = (text, limit = 200) => {
         if (text.length <= limit) return text;
 
@@ -23,32 +19,22 @@ function CardPreview({ product }) {
         return truncated.replace(/[,:;]+$/, "") + "...";
     };
 
-    const formatter = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-    });
-
     return (
         <>
-            <div className="previewCardContainer">
-                <div className="cardDiv">
-                    <div className="previewImage">
+            <div className="previewCardContainerh">
+                <div className="cardDivh">
+                    <div className="previewImageh">
                         <Link to={`/shop/${product.category}/${product.id}`}>
                             <img src={product.images[0]} />
                         </Link>
                     </div>
-                    <div className="previewTitle">
+                    <div className="previewTitleh">
                         <Link to={`/shop/${product.category}/${product.id}`}>
                             <h2>{truncateAtWord(product.title, 60)}</h2>
                         </Link>
                     </div>
-                    <div className="previewPrice">
-                        <h1>{formatter.format(product.price)}</h1>
-                    </div>
-                    <div className="previewButton">
-                        <button onClick={() => addToCart(product, 1)}>
-                            Add to cart
-                        </button>
+                    <div className="previewPriceh">
+                        <h1>${product.price.toFixed(2)}</h1>
                     </div>
                 </div>
             </div>
@@ -56,4 +42,5 @@ function CardPreview({ product }) {
     );
 }
 
-export default CardPreview;
+export default HomePreview;
+

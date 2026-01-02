@@ -36,11 +36,10 @@ export function CartProvider({ children }) {
             return;
         }
         setCart((prevCart) =>
-            prevCart.map(
-                (item) =>
-                    item.id === productId
-                        ? { ...item, count: Math.min(newCount, item.stock) }
-                        : item, // ✅ Leave other items unchanged
+            prevCart.map((item) =>
+                item.id === productId
+                    ? { ...item, count: Math.min(newCount, item.stock) }
+                    : item,
             ),
         );
     }

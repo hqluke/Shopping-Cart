@@ -28,23 +28,25 @@ object-fit: contain;
     flex-direction: column;
     border: 1px white groove;
     margin: 0.4rem;
-    height: 300px;
-    width: 240px;
+    height: 280px;
+    width: 220px;
     justify-content: center;
 }
 
 .cardDiv {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .previewImage {
     margin-right: auto;
     margin-left: auto;
+    margin-top: 1rem;
 }
 
 .previewTitle {
-    margin: 2rem 1.2rem 0 1.2rem;
+    margin: 1rem 1.2rem 0 1.2rem;
 }
 
 .previewRating {
@@ -59,3 +61,13 @@ object-fit: contain;
 .previewPrice {
     margin: 0 1.2rem 0 1.2rem;
 }
+
+.previewButton{
+display: flex;
+justify-content: center;
+}
+
+.previewButton button{
+    font-size: .8rem;
+    height: 2.8rem;
+    margin-bottom: 2rem;

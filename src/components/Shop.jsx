@@ -2,6 +2,8 @@ import HeaderBar from "./HeaderBar.jsx";
 import { useLoaderData } from "react-router";
 import ProductCard from "./ProductCard.jsx";
 import "../style/Shop.css";
+import CardPreview from "./CardPreview.jsx";
+
 function Shop() {
     const Products = useLoaderData();
     console.log("SHOP PAGE");
@@ -15,7 +17,7 @@ function Shop() {
                 <h1>Shop All</h1>
                 <div className="productsContainer">
                     {Products.map((p) => (
-                        <ProductCard key={p.id} product={p} />
+                        <CardPreview key={p.id} product={p} />
                     ))}
                 </div>
             </div>

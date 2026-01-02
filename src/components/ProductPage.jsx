@@ -70,6 +70,17 @@ function ProductPage() {
         addToCart(product, quantityToAdd);
     }
 
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        if (isNaN(date)) return ""; // prevent “Invalid Date”
+
+        return new Intl.DateTimeFormat("en-US", {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+        }).format(date);
+    }
+
     return (
         <>
             <div className="ppfull">
@@ -114,7 +125,10 @@ function ProductPage() {
                         <h2>${product.price.toFixed(2)}</h2>
                         <p>{product.description}</p>
                         <p>
-                            Shop more: <Link to ={`/shop/${product.category}`}>{product.category}</Link>
+                            Shop more:{" "}
+                            <Link to={`/shop/${product.category}`}>
+                                {product.category}
+                            </Link>
                         </p>
                         <div className="ppsp">
                             <div className="shipping">
@@ -163,6 +177,42 @@ function ProductPage() {
                         </button>
                     </div>
                 </div>
+                {/* <h1>Customer Reviews</h1> */}
+                {/* <div className="ppreviews"> */}
+                {/*     <div className="pprc"> */}
+                {/*         <div className="pprt"> */}
+                {/*             <p>{product.reviews[0].reviewerName}</p> */}
+                {/*             <div className="pprr"> */}
+                {/*                 <p>{product.reviews[0].rating}</p> */}
+                {/*                 <p>★</p> */}
+                {/*             </div> */}
+                {/*         </div> */}
+                {/*         <p>{formatDate(product.reviews[0].date)}</p> */}
+                {/*         <p>{product.reviews[0].comment}</p> */}
+                {/*     </div> */}
+                {/*     <div className="pprc"> */}
+                {/*         <div className="pprt"> */}
+                {/*             <p>{product.reviews[1].reviewerName}</p> */}
+                {/*             <div className="pprr"> */}
+                {/*                 <p>{product.reviews[1].rating}</p> */}
+                {/*                 <p>★</p> */}
+                {/*             </div> */}
+                {/*         </div> */}
+                {/*         <p>{formatDate(product.reviews[1].date)}</p> */}
+                {/*         <p>{product.reviews[1].comment}</p> */}
+                {/*     </div> */}
+                {/*     <div className="pprc"> */}
+                {/*         <div className="pprt"> */}
+                {/*             <p>{product.reviews[2].reviewerName}</p> */}
+                {/*             <div className="pprr"> */}
+                {/*                 <p>{product.reviews[2].rating}</p> */}
+                {/*                 <p>★</p> */}
+                {/*             </div> */}
+                {/*         </div> */}
+                {/*         <h3>{formatDate(product.reviews[2].date)}</h3> */}
+                {/*         <p>{product.reviews[2].comment}</p> */}
+                {/*     </div> */}
+                {/* </div> */}
             </div>
         </>
     );

@@ -18,15 +18,15 @@ function HeaderBar() {
                     <Link to="/cart">Cart</Link>
                 </div>
                 <div className="navRight">
+                    <Link to="/cart">{itemCount > 0 &&
+                        <div className="hcount">
+                            <p>{itemCount}</p>
+                        </div>}
+                    </Link>
                     <Link to="/cart">
                         <div className="himg">
                             <img src="/cart-shopping-fast-svgrepo-com.svg" />
                         </div>
-                    </Link>
-                    <Link to="/cart">{itemCount > 0 &&
-                        <div className="hcount">
-                             <p>{itemCount}</p>
-                        </div>}
                     </Link>
                 </div>
             </div>

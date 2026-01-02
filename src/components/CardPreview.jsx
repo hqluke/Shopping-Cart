@@ -1,10 +1,6 @@
 import "../style/CardPreview.css";
 import { Link } from "react-router";
-import { useCart } from "./CartContext";
-
 function CardPreview({ product }) {
-    const { addToCart } = useCart();
-
     const truncateAtWord = (text, limit = 200) => {
         if (text.length <= limit) return text;
 
@@ -39,16 +35,11 @@ function CardPreview({ product }) {
                     </div>
                     <div className="previewTitle">
                         <Link to={`/shop/${product.category}/${product.id}`}>
-                            <h2>{truncateAtWord(product.title, 60)}</h2>
+                            <h2>{truncateAtWord(product.title, 30)}</h2>
                         </Link>
                     </div>
                     <div className="previewPrice">
                         <h1>{formatter.format(product.price)}</h1>
-                    </div>
-                    <div className="previewButton">
-                        <button onClick={() => addToCart(product, 1)}>
-                            Add to cart
-                        </button>
                     </div>
                 </div>
             </div>
